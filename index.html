@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Prompts</title>
+<meta name="description" content="Open, copy-and-paste super prompts for teachers and curious humans, by Wes Fryer. Free to adapt under CC BY 4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root {
+  --bg: #EEF0F5; --panel: #FFFFFF; --panel-2: #E3E7F0; --ink: #12151D; --muted: #4B5367; --line: #CBD1E0;
+  --accent: #FFB81C; --accent-ink: #14161D; --focus: #1F4FD8; --ok: #1E7A3C;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0F1219; --panel: #1A1F2B; --panel-2: #242B3B; --ink: #F2EFE8; --muted: #A3AABD; --line: #2E3649; --focus: #FFB81C; --ok: #5FD38A; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; padding-bottom: 56px; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.bars { display: flex; height: 18px; }
+.bars span { flex: 1; }
+.bars span:nth-child(1){background:#C9CCD3}.bars span:nth-child(2){background:#F2C230}.bars span:nth-child(3){background:#2EC4D6}.bars span:nth-child(4){background:#3FBF6B}.bars span:nth-child(5){background:#D94FC4}.bars span:nth-child(6){background:#E5484D}.bars span:nth-child(7){background:#4C6FFF}
+.wrap { max-width: 920px; margin-inline: auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+.hero { padding-block: 26px 6px; display: grid; gap: 10px; }
+.tally { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(3.4rem, 15vw, 7.5rem); line-height: .88; text-transform: uppercase; margin: 0; }
+.lede { color: var(--muted); max-width: 64ch; margin: 0; font-size: 1.05rem; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-top: 20px; }
+.step { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
+.step b { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .03em; display: block; line-height: 1.1; }
+.step span { color: var(--muted); font-size: .93rem; }
+h2 { font-family: var(--font-mono); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 30px 0 10px; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.card { background: var(--panel); border: 2px solid var(--line); border-radius: 8px; padding: 16px; display: grid; gap: 10px; }
+.card h3 { margin: 0; font-family: var(--font-display); font-weight: 900; font-size: 2rem; line-height: 1; text-transform: uppercase; }
+.card p { margin: 0; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; background: var(--panel-2); border-radius: 999px; padding: 2px 10px; }
+.acts { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.copy { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); border: 0; border-radius: 6px; padding: 0 20px; min-height: 44px; cursor: pointer; box-shadow: 0 3px 0 rgba(0,0,0,.35); }
+.copy:hover { filter: brightness(1.06); }
+.copy:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.35); }
+.acts a { font-size: .92rem; font-weight: 500; }
+.meta { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); letter-spacing: .04em; }
+details summary { cursor: pointer; font-weight: 500; min-height: 32px; }
+pre { margin: 8px 0 0; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 12px; max-height: 420px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--font-mono); font-size: .8rem; line-height: 1.5; }
+.status { min-height: 1.4em; font-size: .9rem; color: var(--ok); }
+.err { color: var(--muted); border: 2px dashed var(--line); border-radius: 6px; padding: 16px; }
+footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: .92rem; display: grid; gap: 6px; max-width: 72ch; }
+footer p { margin: 0; }
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<main class="wrap">
+  <header class="hero">
+    <div class="tally">Open prompts / by Wes Fryer</div>
+    <h1>Super Prompts</h1>
+    <p class="lede">Copy-and-paste prompts that turn an AI chatbot into a careful helper for one specific job. Each one is documented, tested, and free to adapt.</p>
+  </header>
+
+  <section class="steps" aria-label="How it works">
+    <div class="step"><b>Pick a prompt</b><span>Read what it builds and what you need to bring.</span></div>
+    <div class="step"><b>Copy it</b><span>Press Copy prompt, or open the full text first.</span></div>
+    <div class="step"><b>Paste and go</b><span>Start a new chat, paste, and answer the questions.</span></div>
+  </section>
+
+  <h2>The prompts</h2>
+  <ul class="list" id="list"><li class="err">Loading prompts...</li></ul>
+
+  <footer>
+    <p>Never paste student names, grades, or private records into a prompt unless your school allows it. Keep student data out of this site and its repository.</p>
+    <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Use, share, and adapt with credit to Wes Fryer. <a href="https://github.com/wfryer/super-prompts">Source on GitHub</a>.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var REPO = 'https://github.com/wfryer/super-prompts/blob/main/';
+  var list = document.getElementById('list');
+
+  function mk(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+
+  function extractPrompt(md) {
+    var body = md.replace(/^---[\s\S]*?\n---\s*\n/, '');
+    var a = body.indexOf('<!-- PROMPT START -->'), b = body.indexOf('<!-- PROMPT END -->');
+    if (a !== -1 && b > a) return body.slice(a + 21, b).trim();
+    return body.trim();
+  }
+
+  function fallbackCopy(text) {
+    var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} document.body.removeChild(t); return ok;
+  }
+
+  function card(p) {
+    var li = mk('li', 'card');
+    li.appendChild(mk('h3', '', p.title));
+    li.appendChild(mk('p', '', p.description));
+    var tags = mk('div', 'tags');
+    (p.tags || []).forEach(function (t) { tags.appendChild(mk('span', 'tag', t)); });
+    li.appendChild(tags);
+
+    var acts = mk('div', 'acts');
+    var btn = mk('button', 'copy', 'Copy prompt'); btn.type = 'button';
+    var status = mk('span', 'status'); status.setAttribute('role', 'status');
+    var raw = mk('a', '', 'Download .md'); raw.href = p.file; raw.setAttribute('download', '');
+    var src = mk('a', '', 'View on GitHub'); src.href = REPO + p.file;
+    acts.appendChild(btn); acts.appendChild(raw); acts.appendChild(src); acts.appendChild(status);
+    li.appendChild(acts);
+    if (p.updated) li.appendChild(mk('div', 'meta', 'Updated ' + p.updated));
+
+    var det = mk('details'); var sum = mk('summary', '', 'Read the full prompt'); det.appendChild(sum);
+    var pre = mk('pre', '', 'Loading...'); det.appendChild(pre); li.appendChild(det);
+
+    var promptText = null;
+    function load() {
+      if (promptText !== null) return Promise.resolve(promptText);
+      return fetch(p.file).then(function (r) { if (!r.ok) throw new Error('bad'); return r.text(); }).then(function (md) {
+        promptText = extractPrompt(md); pre.textContent = promptText; return promptText;
+      });
+    }
+    load().catch(function () { pre.textContent = 'The prompt text could not load here. Use View on GitHub instead.'; });
+
+    btn.addEventListener('click', function () {
+      load().then(function (text) {
+        function done(ok) { status.textContent = ok ? 'Copied. Paste it into a new chat.' : 'Copy failed. Open the full prompt and select the text.'; setTimeout(function () { status.textContent = ''; }, 4000); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+        else done(fallbackCopy(text));
+      }).catch(function () { status.textContent = 'Could not load the prompt. Use View on GitHub.'; });
+    });
+    return li;
+  }
+
+  fetch('prompts.json').then(function (r) { if (!r.ok) throw new Error('bad'); return r.json(); }).then(function (items) {
+    list.textContent = '';
+    items.forEach(function (p) { list.appendChild(card(p)); });
+  }).catch(function () {
+    list.textContent = '';
+    var e = mk('li', 'err', 'The prompt list could not load. This page needs to be opened from its web address, not from a local file.');
+    list.appendChild(e);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "student-work-spinner",
+    "title": "Student Work Spinner",
+    "description": "Turn a Canvas submissions zip into a single-page spinner and show-and-share site with first-name links, plus a CSV that remembers which projects your class has already watched.",
+    "file": "prompts/student-work-spinner.md",
+    "tags": ["classroom", "Canvas", "show and share", "CSV"],
+    "updated": "2026-10-22"
+  }
+]
