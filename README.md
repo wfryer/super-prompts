@@ -14,8 +14,7 @@ Open, copy-and-paste "super prompts" for teachers and curious humans. Each one t
 
 1. Open the prompt file and read the "How to use it" steps at the top.
 2. Copy the prompt text and paste it into a new chat. Most of these work best in Claude with file upload and file creation turned on.
-3. Fill in any [bracketed] settings, or leave them blank and the AI will ask you.
-4. Answer the questions, check what comes back, and adjust.
+3. Answer the questions it asks, check what comes back, and adjust. There is nothing to edit in the prompt first.
 
 ## Student privacy
 

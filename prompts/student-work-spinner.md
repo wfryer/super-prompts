@@ -13,9 +13,9 @@ tags: classroom, canvas, show-and-share, spinner, csv
 ## How to use it
 
 1. In Canvas, open the assignment, choose Download Submissions, and save the zip file.
-2. Start a new Claude chat. Copy the prompt below and paste it in. Fill in the bracketed settings first, or leave them blank and Claude will ask.
+2. Start a new Claude chat. Copy the whole prompt below and paste it in. There is nothing to edit.
 3. Attach the zip when Claude asks for it. Add the assignment PDF and last class's CSV if you have them.
-4. Check the table Claude shows you (first names, links, anything odd), then answer the optional look and feel questions.
+4. Check the table Claude shows you (first names, links, anything odd), then answer Claude's short questions about your class and the look.
 5. Claude returns a private page and the HTML file. Run your class. At the end, press Download CSV. Next class, press Load CSV to pick up where you left off.
 
 ## The prompt
@@ -25,15 +25,7 @@ Copy everything between the lines.
 ---
 
 <!-- PROMPT START -->
-I teach [GRADE LEVEL AND SUBJECT, e.g. 7th grade Broadcast Media]. You are my classroom web developer. Build me a single-file "show and share" webpage with a spinner so my class can watch and review student projects one at a time, using student first names only.
-
-MY SETTINGS (fill in what you can; leave a line blank and ask me instead)
-- How students address me: [e.g. Dr. Fryer]
-- Assignment name: [ ]
-- What students made: [e.g. a studio logo page, a green screen video, a game]
-- Class or period label (optional): [ ]
-- Rules for page text: [e.g. 6th grade reading level, no em dashes]
-- Vibe or theme (optional): [ ]
+I am a teacher. You are my classroom web developer. Build me a single-file "show and share" webpage with a spinner so my class can watch and review student projects one at a time, using student first names only.
 
 STEP 0: START HERE
 Before anything else, ask me to upload the zip file of my Canvas assignment submissions. In the same message, ask for the assignment PDF or description and, if I have one, the CSV from my last class session. Do not ask any other question until the zip is uploaded.
@@ -49,13 +41,19 @@ STEP 1: READ THE ZIP SAFELY
 - If two students share a first name, add a last initial to both and tell me.
 - Before building, show me a short table: first name, number of links, link types, and anything odd (broken or cut-off links, file uploads with no link, duplicates, empty submissions). Wait for my OK or corrections.
 
-STEP 2: ASK ME ABOUT THE LOOK (all optional; use defaults if I skip)
-Use a multiple choice question tool if you have one. Offer:
-1. Vibe: choose one, or "surprise me from the assignment topic": Broadcast studio (color bars, clapperboards), Sports desk (field strip, lower thirds), Retro arcade, Game show, Mission control, Museum gallery, Newsroom, Clean and minimal.
-2. Spinner style: card grid with a "pick for me" button (default), a spinning wheel of names, a slot machine, or a wheel plus the grid.
-3. Screen: projected on a classroom screen (large type, high contrast), student Chromebooks, or both.
-4. "While you watch" prompts: offer to draft 3 or 4 short viewing prompts from the assignment goals and rubric. I will approve or edit them.
-5. Sound: none (default), or an optional tick sound that stays off until a student turns it on.
+STEP 2: ASK ME ABOUT MY CLASS AND THE LOOK
+After I approve the student table, ask me these questions. Use a multiple choice question tool if you have one, in short rounds of up to 4 questions, with a sensible default for each. Skip anything the assignment PDF or the zip already answers, and accept "use the defaults" at any point.
+About my class:
+1. Grade level and subject (for example 7th grade Broadcast Media), so you can set the reading level of the page text.
+2. What students should call me on the page (for example Ms. Rivera).
+3. Assignment name and what students made. Suggest an answer from the zip or PDF for me to confirm.
+4. Class or period label (optional), and any rules for page text (for example no em dashes).
+About the look (all optional):
+5. Vibe: choose one, or "surprise me from the assignment topic": Broadcast studio (color bars, clapperboards), Sports desk (field strip, lower thirds), Retro arcade, Game show, Mission control, Museum gallery, Newsroom, Clean and minimal.
+6. Spinner style: card grid with a "pick for me" button (default), a spinning wheel of names, a slot machine, or a wheel plus the grid.
+7. Screen: projected on a classroom screen (large type, high contrast), student Chromebooks, or both.
+8. "While you watch" prompts: offer to draft 3 or 4 short viewing prompts from the assignment goals and rubric. I will approve or edit them.
+9. Sound: none (default), or an optional tick sound that stays off until a student turns it on.
 
 STEP 3: BUILD THE PAGE
 One self-contained HTML file. The only outside resource allowed is Google Fonts (always include fallback fonts). Include all of this:
@@ -69,7 +67,7 @@ One self-contained HTML file. The only outside resource allowed is Google Fonts 
 - Remember state in this browser (localStorage inside try/catch) as a convenience only. The CSV is the real record that moves between classes and devices.
 - Downloads: if the page will be published as a Claude artifact, browser downloads started from inside the page are blocked. Check which artifact capabilities you have and use the file-save capability for the CSV. Also add a Copy CSV button and a visible text box showing the CSV so I can paste it into a file, and give me the standalone HTML file too, because downloads work normally when it is opened from my computer.
 - Responsive from phone to projector, light and dark themes, visible keyboard focus, text that never gets cut off, no sideways scrolling.
-- Friendly, plain page text written for students. Footer: links open in a new tab; if a project says you need access, tell [my name]; reviewed marks stay in this browser.
+- Friendly, plain page text written for students, at the reading level and following the text rules I gave you in Step 2. Footer: links open in a new tab; if a project says you need access, tell the teacher name I gave you in Step 2; reviewed marks stay in this browser.
 
 STEP 4: CHECK BEFORE YOU HAND IT BACK
 - Run a script that compares every link on the page to the original zip files, and show me they match.
@@ -103,10 +101,10 @@ The download has one row per student on the page:
 
 ```csv
 first_name,reviewed,date_reviewed
-Cohen,yes,2026-10-20
-Emmett,yes,2026-10-20
-Juliana,no,
-Maddix,no,
+Avery,yes,2026-10-20
+Jordan,yes,2026-10-20
+Riley,no,
+Taylor,no,
 ```
 
 When you load a file from an earlier class, the page merges it in. Names match ignoring capitals and extra spaces. Matching students show as reviewed with their saved date. Loading never un-reviews anyone. A name in the CSV that is not on the page is listed in a small notice and ignored. Students missing from the CSV stay unreviewed, so late submissions show up as still to watch.
