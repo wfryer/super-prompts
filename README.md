@@ -9,6 +9,7 @@ Open, copy-and-paste "super prompts" for teachers and curious humans. Each one t
 | Prompt | What it does |
 | --- | --- |
 | [Student Work Spinner](prompts/student-work-spinner.md) | Turns a Canvas submissions zip into a single-page spinner and show-and-share site with first-name links, plus a CSV that remembers which projects your class has already watched. |
+| [News Share Station](prompts/news-share-station.md) | Builds a bookmarklet and a retro arcade styled page that turn any news article into a ready-to-post message with launch buttons for six social networks, plus a copy-ready show notes link. |
 
 ## How to use a super prompt
 
