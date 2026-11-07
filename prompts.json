@@ -6,18 +6,13 @@
     "file": "prompts/student-work-spinner.md",
     "tags": ["classroom", "Canvas", "show and share", "CSV"],
     "updated": "2026-10-22"
-  }
+  },
   {
-  "id": "news-share-station",
-  "title": "News Share Station",
-  "description": "Builds a bookmarklet and a retro arcade styled page that turn any news article into a ready-to-post message with launch buttons for six social networks, plus a copy-ready show notes link.",
-  "file": "prompts/news-share-station.md",
-  "tags": [
-    "social media",
-    "bookmarklet",
-    "news curation",
-    "HTML"
-  ],
-  "updated": "2026-11-07"
-}
+    "id": "news-share-station",
+    "title": "News Share Station",
+    "description": "Builds a bookmarklet and a retro arcade styled page that turn any news article into a ready-to-post message with launch buttons for six social networks, plus a copy-ready show notes link.",
+    "file": "prompts/news-share-station.md",
+    "tags": ["social media", "bookmarklet", "news curation", "HTML"],
+    "updated": "2026-11-07"
+  }
 ]
